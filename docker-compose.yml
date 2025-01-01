@@ -5,7 +5,7 @@ services:
     build:
       context: "./Docker-files/db"
       dockerfile: Dockerfile
-    #image: ammarabdelhady8132/vprofiledb  
+    image: ammarabdelhady8132/vprofiledb  
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -33,7 +33,7 @@ services:
     build:
       context: "./Docker-files/app"
       dockerfile: Dockerfile
-    #image: ammarabdelhady8132/vprofileapp  
+    image: ammarabdelhady8132/vprofileapp  
     container_name: vprodbapp
     ports:
       - "8080:8080"
@@ -44,7 +44,7 @@ services:
     build:
       context: "./Docker-files/web"
       dockerfile: Dockerfile
-    #image: ammarabdelhady8132/vprofileweb  
+    image: ammarabdelhady8132/vprofileweb  
     container_name: vproweb
     ports:
       - "80:80"

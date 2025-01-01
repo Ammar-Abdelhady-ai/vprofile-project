@@ -2,11 +2,6 @@
 FROM openjdk:17-jdk-slim as builder
 RUN apt-get update && apt-get install -y maven git
 
-# Set Git configuration to increase timeout
-RUN git config --global http.postBuffer 104857600  # Increase post buffer size to 100MB
-RUN git config --global http.lowSpeedLimit 0       # Disable low-speed limit
-RUN git config --global http.lowSpeedTime 999999   # Set low-speed time to a high value
-
 # Use HTTPS for cloning the repository
 RUN git clone https://github.com/Ammar-Abdelhady-ai/vprofile-project.git && \
     cd vprofile-project && \
