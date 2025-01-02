@@ -24,4 +24,24 @@ pipeline {
             }
         }
     }
+
+    post{
+        success {
+            echo 'Build Success'
+            echo 'Now archive the artifacts'
+            archiveArtifacts artifacts: '**/*.war'
+        }
+    }
+
+    stage('Test') {
+        steps {
+            sh 'mvn test'
+        }
+    }
+
+    stage('Checkstyle Analysis') {
+        steps {
+            sh 'mvn checkstyle:checkstyle'
+        }
+    }
 }
