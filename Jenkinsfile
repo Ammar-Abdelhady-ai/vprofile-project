@@ -1,9 +1,9 @@
-pipeline{
+pipeline {
     agent any
-    tool(
-        maven "MAVEN3"
-        jdk "OracleJDK8"
-    )
+    tools {
+        maven 'MAVEN3'
+        jdk 'OracleJDK8'
+    }
 
     environment {
         SNAP_REPO = 'vprofile-snapshot'
@@ -15,11 +15,11 @@ pipeline{
         NEXUSPORT = '8081'
         NEXUS_GRP_REPO = 'vpro-maven-group'
         NEXUS_LOGIN = 'nexuslogin'
-        }
-        
-    stages{
-        stage('Build'){
-            steps{
+    }
+
+    stages {
+        stage('Build') {
+            steps {
                 sh 'mvn -s settings.xml -DskipTests install'
             }
         }
